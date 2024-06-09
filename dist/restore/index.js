@@ -88124,7 +88124,7 @@ async function getCmdOutput(cmd, args = [], options = {}) {
     let stdout = "";
     let stderr = "";
     try {
-        await exec.exec(cmd, args, {
+        await exec.exec("su", ["esp", "-c", `${cmd} ${args.join(" ")}`], {
             silent: true,
             listeners: {
                 stdout(data) {
